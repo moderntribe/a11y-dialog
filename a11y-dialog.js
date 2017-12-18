@@ -19,6 +19,7 @@
 	 */
 	function A11yDialog(options) {
 		this.options = extend({
+			appendTarget: '',
 			bodyLock: true,
 			closeButtonAriaLabel: 'Close this dialog window',
 			closeButtonClasses: 'a11y-dialog__close-button',
@@ -92,7 +93,11 @@
 			'    </div>\n' +
 			'  </div>';
 
-		insertAfter(node, this.trigger);
+		var appendTarget = this.trigger;
+		if (this.options.appendTarget.length) {
+			appendTarget = document.querySelectorAll(this.options.appendTarget)[0] || this.trigger;
+		}
+		insertAfter(node, appendTarget);
 		this.node = node;
 		this.overlay = getNodes('a11y-overlay', false, this.node)[0];
 		this.closeButton = getNodes('a11y-close-button', false, this.node)[0];
@@ -425,6 +430,7 @@
 
 	function lock() {
 		scroll = scroller.scrollTop;
+		document.body.classList.add('a11y-dialog__body-locked');
 		document.body.style.position = 'fixed';
 		document.body.style.width = '100%';
 		document.body.style.marginTop = '-' + scroll + 'px';
@@ -436,6 +442,7 @@
 	 */
 
 	function unlock() {
+		document.body.classList.remove('a11y-dialog__body-locked');
 		document.body.style.marginTop = '0px';
 		document.body.style.position = '';
 		document.body.style.width = 'auto';

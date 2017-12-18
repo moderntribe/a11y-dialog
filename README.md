@@ -54,6 +54,7 @@ const dialog = new A11yDialog({ trigger: '.some-selector or an element node' });
 Here are all the options you can pass to the dialog on init, and the defaults that the system uses:
 
 ```javascript
+appendTarget: '', // the dialog will be inserted after the button, you could supply a selector string here to override
 bodyLock: true, // lock the body while dialog open?
 closeButtonAriaLabel: 'Close this dialog window', // aria label for close button
 closeButtonClasses: 'a11y-dialog__close-button', // classes for close button
