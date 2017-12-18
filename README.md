@@ -94,6 +94,11 @@ When shown, hidden and destroyed, the instance will emit certain events. It is p
 The event object can be used to know which trigger (opener / closer) has been used in case of a `show` or `hide` event.
 
 ```javascript
+dialog.on('render', function (dialogEl, event) {
+  // The dialog is not rendered until the first time its called for by the trigger
+  // Instantiate any js that needs to run on the dialog content here, like a slider init
+});
+
 dialog.on('show', function (dialogEl, event) {
   // Do something when dialog gets shown
   // Note: opener is `event.currentTarget`

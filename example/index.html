@@ -66,6 +66,12 @@
 				console.log(triggerEl);
 			});
 
+			dialog.on('render', function (dialogEl, triggerEl) {
+				console.log('rendered');
+				console.log(dialogEl);
+				console.log(triggerEl);
+			});
+
 			// To manually control the dialog:
 			// dialog.show()
 			// dialog.hide()

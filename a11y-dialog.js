@@ -71,7 +71,7 @@
 	 *
 	 * @return {this}
 	 */
-	A11yDialog.prototype.render = function () {
+	A11yDialog.prototype.render = function (event) {
 		var contentNode = getNodes(this.trigger.dataset.content)[0];
 		if (!contentNode) {
 			return this;
@@ -101,6 +101,7 @@
 		}
 		this.closeButton.addEventListener('click', this._hide);
 		this._rendered = true;
+		this._fire('render', event);
 		return this;
 	};
 
@@ -119,7 +120,7 @@
 		}
 
 		if (!this._rendered) {
-			this.render();
+			this.render(event);
 		}
 
 		if (!this._rendered) {
