@@ -12,10 +12,10 @@
 	var scroller = browser.ie || browser.firefox || (browser.chrome && !browser.edge) ? document.documentElement : document.body;
 
 	/**
-	 * Define the varructor to instantiate a dialog
+	 * Define the constructor to instantiate a dialog
 	 *
-	 * @varructor
-	 * @param {Element} trigger
+	 * @constructor
+	 * @param {Object} options
 	 */
 	function A11yDialog(options) {
 		this.options = extend({
@@ -78,7 +78,7 @@
 			return this;
 		}
 		var node = document.createElement('div');
-		node.setAttribute('aria-hidden', true);
+		node.setAttribute('aria-hidden', 'true');
 		node.classList.add(this.options.wrapperClasses);
 		node.innerHTML = '<div data-js="a11y-overlay" tabindex="-1" class="' + this.options.overlayClasses + '"></div>\n' +
 			'  <div class="' + this.options.contentClasses + '" role="dialog">\n' +
@@ -133,7 +133,7 @@
 		}
 
 		this.shown = true;
-		this.node.removeAttribute('aria-hidden');
+		this.node.setAttribute('aria-hidden', 'false');
 		if (this.options.bodyLock) {
 			lock();
 		}
@@ -442,11 +442,11 @@
 	 */
 
 	function unlock() {
-		document.body.classList.remove('a11y-dialog__body-locked');
 		document.body.style.marginTop = '0px';
 		document.body.style.position = '';
 		document.body.style.width = 'auto';
 		scroller.scrollTop = scroll;
+		document.body.classList.remove('a11y-dialog__body-locked');
 	}
 
 	function browserTests() {
