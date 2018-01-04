@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [5.0.4] - 2018-01-03
+### Added
+- Fade effect plus easing and speed args
+
+### Changed
+- unset body styles on unlock instead of setting to 0 margin and auto
+
 ## [5.0.3] - 2018-01-03
 ### Changed
 - Swap aria hidden attribute on show hide, dont remove it when showing.

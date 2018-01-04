@@ -58,6 +58,9 @@
 	(function () {
 		document.addEventListener('DOMContentLoaded', function () {
 			var dialog = new window.A11yDialog({
+				appendTarget: '#main',
+				effect: 'fade',
+				effectSpeed: 600,
 				trigger: '[data-js="trigger-newsletter-signup"]', // can be node or selector string
 			});
 

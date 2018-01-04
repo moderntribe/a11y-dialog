@@ -59,6 +59,9 @@ bodyLock: true, // lock the body while dialog open?
 closeButtonAriaLabel: 'Close this dialog window', // aria label for close button
 closeButtonClasses: 'a11y-dialog__close-button', // classes for close button
 contentClasses: 'a11y-dialog__content', // dialog content classes
+effect: 'none', // none or fade (for now)
+effectSpeed: 300, // effect speed in milliseconds
+effectEasing: 'ease-in-out', // a css easing string
 overlayClasses: 'a11y-dialog__overlay', // overlay classes
 overlayClickCloses: true, // clicking overlay closes dialog
 trigger: null, // the trigger for the dialog, can be selector string or element node

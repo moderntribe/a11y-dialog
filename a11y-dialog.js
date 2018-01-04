@@ -24,6 +24,9 @@
 			closeButtonAriaLabel: 'Close this dialog window',
 			closeButtonClasses: 'a11y-dialog__close-button',
 			contentClasses: 'a11y-dialog__content',
+			effect: 'none',
+			effectSpeed: 300,
+			effectEasing: 'ease-in-out',
 			overlayClasses: 'a11y-dialog__overlay',
 			overlayClickCloses: true,
 			trigger: null,
@@ -133,6 +136,7 @@
 		}
 
 		this.shown = true;
+		this._applyOpenEffect();
 		this.node.setAttribute('aria-hidden', 'false');
 		if (this.options.bodyLock) {
 			lock();
@@ -172,6 +176,7 @@
 
 		this.shown = false;
 		this.node.setAttribute('aria-hidden', 'true');
+		this._applyCloseEffect();
 
 		if (this.options.bodyLock) {
 			unlock();
@@ -301,6 +306,41 @@
 		// move it back to its first focusable child
 		if (this.shown && !this.node.contains(event.target)) {
 			setFocusToFirstItem(this.node);
+		}
+	};
+
+	/**
+	 * Applies effects to the opening of the dialog.
+	 *
+	 * @access private
+	 */
+
+	A11yDialog.prototype._applyOpenEffect = function () {
+		var _this = this;
+		if (this.options.effect === 'fade') {
+			this.node.style.opacity = '0';
+			this.node.style.transition = 'opacity ' + this.options.effectSpeed + 'ms ' + this.options.effectEasing;
+			setTimeout(function(){
+				_this.node.style.opacity = '1';
+			}, 50);
+		}
+	};
+
+	/**
+	 * Applies effects to the closing of the dialog.
+	 *
+	 * @access private
+	 */
+
+	A11yDialog.prototype._applyCloseEffect = function () {
+		var _this = this;
+		if (this.options.effect === 'fade') {
+			this.node.setAttribute('aria-hidden', 'false');
+			this.node.style.opacity = '0';
+			setTimeout(function(){
+				_this.node.style.transition = '';
+				_this.node.setAttribute('aria-hidden', 'true');
+			}, this.options.effectSpeed);
 		}
 	};
 
@@ -442,9 +482,9 @@
 	 */
 
 	function unlock() {
-		document.body.style.marginTop = '0px';
+		document.body.style.marginTop = '';
 		document.body.style.position = '';
-		document.body.style.width = 'auto';
+		document.body.style.width = '';
 		scroller.scrollTop = scroll;
 		document.body.classList.remove('a11y-dialog__body-locked');
 	}
