@@ -210,10 +210,12 @@
 		this.hide();
 
 		this.trigger.removeEventListener('click', this._show);
-		if (this.options.overlayClickCloses) {
-			this.overlay.removeEventListener('click', this._hide);
+		if (this._rendered) {
+			if ( this.options.overlayClickCloses ) {
+				this.overlay.removeEventListener( 'click', this._hide );
+			}
+			this.closeButton.removeEventListener( 'click', this._hide );
 		}
-		this.closeButton.removeEventListener('click', this._hide);
 
 		// Execute all callbacks registered for the `destroy` event
 		this._fire('destroy');
