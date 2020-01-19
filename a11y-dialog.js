@@ -175,6 +175,7 @@
 		}
 
 		this.shown = false;
+		this.node.classList.remove('a11y-dialog--open');
 		this.node.setAttribute('aria-hidden', 'true');
 		this._applyCloseEffect();
 
@@ -319,10 +320,13 @@
 
 	A11yDialog.prototype._applyOpenEffect = function () {
 		var _this = this;
+		setTimeout(function() {
+			_this.node.classList.add('a11y-dialog--open');
+		}, 50);
 		if (this.options.effect === 'fade') {
 			this.node.style.opacity = '0';
 			this.node.style.transition = 'opacity ' + this.options.effectSpeed + 'ms ' + this.options.effectEasing;
-			setTimeout(function(){
+			setTimeout(function() {
 				_this.node.style.opacity = '1';
 			}, 50);
 		}
