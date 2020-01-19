@@ -175,8 +175,9 @@
 		}
 
 		this.shown = false;
-		this.node.classList.remove('a11y-dialog--open');
-		this.node.setAttribute('aria-hidden', 'true');
+		if (this.options.effect === 'none') {
+			this.node.setAttribute('aria-hidden', 'true');
+		}
 		this._applyCloseEffect();
 
 		if (this.options.bodyLock) {
@@ -341,12 +342,15 @@
 	A11yDialog.prototype._applyCloseEffect = function () {
 		var _this = this;
 		if (this.options.effect === 'fade') {
-			this.node.setAttribute('aria-hidden', 'false');
 			this.node.style.opacity = '0';
-			setTimeout(function(){
+			setTimeout(function() {
 				_this.node.style.transition = '';
 				_this.node.setAttribute('aria-hidden', 'true');
 			}, this.options.effectSpeed);
+		} else if (this.options.effect === 'css') {
+			setTimeout(function() {
+				_this.node.setAttribute('aria-hidden', 'true');
+			},  this.options.effectSpeed);
 		}
 	};
 
