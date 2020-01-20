@@ -1,6 +1,6 @@
 {
   "name": "mt-a11y-dialog",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description":
     "A tiny script to make dialog windows accessible to assistive technology users. Forked by Modern Tribe",
   "homepage": "https://github.com/faction23/a11y-dialog",

@@ -49,7 +49,7 @@ The example directory here has a styled modal you can use in your code for inspi
 
 To keep this library very light, we only provide a few low level utilities for animations, but with a bit of css you can do whatever you like.
 
-50 milliseconds after the aria-hidden attribute is set to false on the root node a class of `a11y-dialog--open` is added. This gives us time for css animations to run on the root node as for a11y it should be set to display: none when aria-hidden is true.
+50 milliseconds after the aria-hidden attribute is set to false on the root node a class of `a11y-dialog--open` is added.
 
 This class is then removed on close, and if the effect type is set to `css` the aria-hidden attribute is set to true only after the effectSpeed time in milliseconds has passed, allowing whatever css animations you want to apply to run. You just have to synchronize your css animation timings you use with the effect speed.
 

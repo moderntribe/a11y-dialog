@@ -341,6 +341,7 @@
 
 	A11yDialog.prototype._applyCloseEffect = function () {
 		var _this = this;
+		this.node.classList.remove('a11y-dialog--open');
 		if (this.options.effect === 'fade') {
 			this.node.style.opacity = '0';
 			setTimeout(function() {
