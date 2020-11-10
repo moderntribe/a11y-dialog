@@ -40,7 +40,7 @@
 		this._maintainFocus = this._maintainFocus.bind(this);
 		this._bindKeypress = this._bindKeypress.bind(this);
 
-		this.trigger = isString(this.options.trigger) ? getNodes(this.options.trigger, false, document, true)[0] : this.options.trigger;
+		this.trigger = isString(this.options.trigger) ? getNodes(this.options.trigger, false, document, true) : this.options.trigger;
 		this.node = null;
 
 		if (!this.trigger) {
@@ -62,7 +62,12 @@
 	 */
 	A11yDialog.prototype.create = function () {
 		this.shown = false;
-		this.trigger.addEventListener('click', this._show);
+		
+		this.trigger.forEach(
+			function( opener ) {
+				opener.addEventListener( 'click', this._show );
+			}.bind( this )
+		);
 
 		// Execute all callbacks registered for the `create` event
 		this._fire('create');
@@ -76,7 +81,7 @@
 	 * @return {this}
 	 */
 	A11yDialog.prototype.render = function (event) {
-		var contentNode = getNodes(this.trigger.dataset.content)[0];
+		var contentNode = getNodes( this.trigger[0].dataset.content )[0];
 		if (!contentNode) {
 			return this;
 		}
@@ -211,7 +216,12 @@
 		// Hide the dialog to avoid destroying an open instance
 		this.hide();
 
-		this.trigger.removeEventListener('click', this._show);
+		this.trigger.forEach(
+			function( opener ) {
+				opener.removeEventListener('click', this._show);
+			}.bind( this )
+		);
+		
 		if (this._rendered) {
 			if ( this.options.overlayClickCloses ) {
 				this.overlay.removeEventListener( 'click', this._hide );
