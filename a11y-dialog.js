@@ -40,7 +40,7 @@
 		this._maintainFocus = this._maintainFocus.bind(this);
 		this._bindKeypress = this._bindKeypress.bind(this);
 
-		this.trigger = isString(this.options.trigger) ? getNodes(this.options.trigger, false, document, true) : this.options.trigger;
+		this.trigger = isString(this.options.trigger) ? getNodes(this.options.trigger, true, document, true) : this.options.trigger;
 		this.node = null;
 
 		if (!this.trigger) {
@@ -64,9 +64,9 @@
 		this.shown = false;
 		
 		this.trigger.forEach(
-			function( opener ) {
-				opener.addEventListener( 'click', this._show );
-			}.bind( this )
+			function(opener) {
+				opener.addEventListener('click', this._show);
+			}.bind(this)
 		);
 
 		// Execute all callbacks registered for the `create` event
@@ -217,9 +217,9 @@
 		this.hide();
 
 		this.trigger.forEach(
-			function( opener ) {
+			function(opener) {
 				opener.removeEventListener('click', this._show);
-			}.bind( this )
+			}.bind(this)
 		);
 		
 		if (this._rendered) {
