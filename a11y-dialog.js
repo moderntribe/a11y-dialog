@@ -81,7 +81,7 @@
 	 * @return {this}
 	 */
 	A11yDialog.prototype.render = function (event) {
-		var contentNode = getNodes( this.trigger[0].dataset.content )[0];
+		var contentNode = getNodes(this.trigger[0].dataset.content)[0];
 		if (!contentNode) {
 			return this;
 		}
