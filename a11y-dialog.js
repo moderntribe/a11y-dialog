@@ -31,6 +31,9 @@
 			overlayClickCloses: true,
 			trigger: null,
 			wrapperClasses: 'a11y-dialog',
+			ariaDescribedBy: '',
+			ariaLabel: '',
+			ariaLabelledBy: '',
 		}, options);
 		// Prebind the functions that will be bound in addEventListener and
 		// removeEventListener to avoid losing references
@@ -62,7 +65,7 @@
 	 */
 	A11yDialog.prototype.create = function () {
 		this.shown = false;
-		
+
 		this.trigger.forEach(
 			function(opener) {
 				opener.addEventListener('click', this._show);
@@ -85,11 +88,14 @@
 		if (!contentNode) {
 			return this;
 		}
+		var ariaDescribedBy = this.options.ariaDescribedBy ? 'aria-describedby="' + this.options.ariaDescribedBy + '" ' : '';
+		var ariaLabel = this.options.ariaLabel ? 'aria-label="' + this.options.ariaLabel + '"' : '';
+		var ariaLabelledBy = this.options.ariaLabelledBy ? 'aria-labelledby="' + this.options.ariaLabelledBy + '"' : '';
 		var node = document.createElement('div');
 		node.setAttribute('aria-hidden', 'true');
 		node.classList.add(this.options.wrapperClasses);
 		node.innerHTML = '<div data-js="a11y-overlay" tabindex="-1" class="' + this.options.overlayClasses + '"></div>\n' +
-			'  <div class="' + this.options.contentClasses + '" role="dialog">\n' +
+			'  <div class="' + this.options.contentClasses + '" role="dialog" aria-modal="true" ' + ariaLabelledBy + ariaDescribedBy + ariaLabel + '>\n' +
 			'    <div role="document">\n' +
 			'      <button ' +
 			'           data-js="a11y-close-button"' +
@@ -221,7 +227,7 @@
 				opener.removeEventListener('click', this._show);
 			}.bind(this)
 		);
-		
+
 		if (this._rendered) {
 			if ( this.options.overlayClickCloses ) {
 				this.overlay.removeEventListener( 'click', this._hide );
