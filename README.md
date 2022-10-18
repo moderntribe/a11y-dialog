@@ -20,7 +20,7 @@ Or you could also copy/paste the script in your project directly, but you will b
 
 ## Usage
 
-You will find a concrete demo in the [example](https://github.com/moderntribe/a11y-dialog/tree/master/example) folder of this repository, but basically here is the gist:
+You will find a concrete demo in the [example](https://github.com/moderntribe/a11y-dialog/tree/main/example) folder of this repository, but basically here is the gist:
 
 ### Required Markup
 
@@ -145,4 +145,4 @@ dialog.off('show', doSomething);
 
 ## Disclaimer & credits
 
-This repository is a fork from [edenspiekermann](http://edenspiekermann.github.io/a11y-dialog/)
+This repository is a fork from [edenspiekermann](http://edenspiekermann.github.io/a11y-dialog/) & [faction23](https://github.com/faction23/a11y-dialog)
