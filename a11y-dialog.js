@@ -9,7 +9,7 @@
 	var focusedBeforeDialog;
 	var browser = browserTests();
 	var scroll = 0;
-	var scroller = browser.ie || browser.firefox || (browser.chrome && !browser.edge) ? document.documentElement : document.body;
+	var scroller = browser.ie || browser.firefox || browser.safari || browser.ios || ( browser.chrome && ! browser.edge ) ? document.documentElement : document.body;
 
 	/**
 	 * Define the constructor to instantiate a dialog
