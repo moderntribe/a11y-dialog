@@ -9,7 +9,8 @@
 	var focusedBeforeDialog;
 	var browser = browserTests();
 	var scroll = 0;
-	var scroller = browser.ie || browser.firefox || (browser.chrome && !browser.edge) ? document.documentElement : document.body;
+	var scroller = browser.ie || browser.firefox || browser.safari || browser.ios || ( browser.chrome && ! browser.edge ) ? document.documentElement : document.body;
+	var scrollBehavior = '';
 
 	/**
 	 * Define the constructor to instantiate a dialog
@@ -497,6 +498,8 @@
 
 	function lock() {
 		scroll = scroller.scrollTop;
+		scrollBehavior = document.documentElement.style.scrollBehavior;
+		document.documentElement.style.scrollBehavior = 'auto';
 		document.body.classList.add('a11y-dialog__body-locked');
 		document.body.style.position = 'fixed';
 		document.body.style.width = '100%';
@@ -513,6 +516,7 @@
 		document.body.style.position = '';
 		document.body.style.width = '';
 		scroller.scrollTop = scroll;
+		document.documentElement.style.scrollBehavior = scrollBehavior;
 		document.body.classList.remove('a11y-dialog__body-locked');
 	}
 
