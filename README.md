@@ -1,6 +1,6 @@
-# [MT A11y Dialog](https://github.com/faction23/a11y-dialog)
+# [MT A11y Dialog](https://github.com/moderntribe/a11y-dialog)
 
-[mt-a11y-dialog](https://github.com/faction23/a11y-dialog) is a lightweight yet flexible script to create accessible dialog windows. Forked from [edenspiekermann](http://edenspiekermann.github.io/a11y-dialog/)
+[mt-a11y-dialog](https://github.com/moderntribe/a11y-dialog) is a lightweight yet flexible script to create accessible dialog windows. Forked from [edenspiekermann](http://edenspiekermann.github.io/a11y-dialog/)
 
 ✔︎ No dependencies  
 ✔︎ Closing dialog on overlay click and <kbd>ESC</kbd>  
@@ -20,7 +20,7 @@ Or you could also copy/paste the script in your project directly, but you will b
 
 ## Usage
 
-You will find a concrete demo in the [example](https://github.com/faction23/a11y-dialog/tree/master/example) folder of this repository, but basically here is the gist:
+You will find a concrete demo in the [example](https://github.com/moderntribe/a11y-dialog/tree/master/example) folder of this repository, but basically here is the gist:
 
 ### Required Markup
 

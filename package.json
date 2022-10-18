@@ -1,8 +1,8 @@
 {
   "name": "mt-a11y-dialog",
   "version": "5.2.0",
-  "description": "A tiny script to make dialog windows accessible to assistive technology users. Forked by Modern Tribe",
-  "homepage": "https://github.com/faction23/a11y-dialog",
+  "description": "A tiny script to make dialog windows accessible to assistive technology users.",
+  "homepage": "https://github.com/moderntribe/a11y-dialog",
   "license": "MIT",
   "main": "a11y-dialog.js",
   "keywords": [
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/faction23/a11y-dialog"
+    "url": "https://github.com/moderntribe/a11y-dialog"
   },
   "files": [
     "a11y-dialog.js",
