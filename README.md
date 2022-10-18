@@ -145,4 +145,4 @@ dialog.off('show', doSomething);
 
 ## Disclaimer & credits
 
-This repository is a fork from [edenspiekermann](http://edenspiekermann.github.io/a11y-dialog/)
+This repository is a fork from [edenspiekermann](http://edenspiekermann.github.io/a11y-dialog/) & [faction23](https://github.com/faction23/a11y-dialog)
