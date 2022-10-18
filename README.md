@@ -20,7 +20,7 @@ Or you could also copy/paste the script in your project directly, but you will b
 
 ## Usage
 
-You will find a concrete demo in the [example](https://github.com/moderntribe/a11y-dialog/tree/master/example) folder of this repository, but basically here is the gist:
+You will find a concrete demo in the [example](https://github.com/moderntribe/a11y-dialog/tree/main/example) folder of this repository, but basically here is the gist:
 
 ### Required Markup
 
